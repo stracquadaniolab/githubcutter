@@ -12,7 +12,7 @@ setup(
     name = 'githubcutter',
     packages = find_packages(),
     version = '0.0.1-dev',
-    description = 'A cookiecutter-like clone to setup GitHub repos based on templates',
+    description = 'A cookiecutter-like tool to setup GitHub repos based on templates',
     long_description = readme,
     license = 'MIT',
     url='git@github.com:stracquadaniolab/github-cutter.git',
