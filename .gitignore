@@ -1,0 +1,28 @@
+# GitHub Cutter - .gitignore
+# by StracquadanioLab
+*
+
+# accepted files
+!docs
+!docs/*
+!tests
+!tests/*
+!tests/**
+!githubcutter
+!githubcutter/*
+!githubcutter/**
+!*.py
+!.bumpversion.cfg
+!.editorconfig
+!.gitattributes
+!.gitignore
+!environment.yml
+!requirements.txt
+!LICENSE
+!MANIFEST.in
+!README.md
+
+# re-ignore files/dirs
+.DS_Store
+.vscode
+__pycache__
