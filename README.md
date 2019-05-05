@@ -1,6 +1,6 @@
 # GitHub Cutter
 
-Current version: 0.1.2-dev
+Current version: 0.2.0-dev
 
 A tool to setup GitHub repositories using simple YAML templates.
 

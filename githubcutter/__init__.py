@@ -4,7 +4,7 @@
 
 __author__ = """StracquadanioLab"""
 __email__ = "giovanni.stracquadanio@ed.ac.uk"
-__version__ = "0.1.2-dev"
+__version__ = "0.2.0-dev"
 
 import logging
 
