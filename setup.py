@@ -12,7 +12,7 @@ setup(
     name = 'githubcutter',
     packages = find_packages(),
     version = '0.2.0-dev',
-    description = 'A cookiecutter-like tool to setup GitHub repos based on templates',
+    description = 'A tool to setup GitHub repositories using simple YAML templates',
     long_description = readme,
     long_description_content_type = 'text/markdown',
     license = 'MIT',
