@@ -17,7 +17,7 @@ def main():
     logging.getLogger(__package__).setLevel(logging.DEBUG)
 
     # loading env
-    load_dotenv(find_dotenv(filename=".githubcutter.env"))
+    load_dotenv(find_dotenv(filename=".githubcutter.env", usecwd=True))
 
     parser = argh.ArghParser()
     parser.add_commands([create_repository, delete_repository, list_repositories])
