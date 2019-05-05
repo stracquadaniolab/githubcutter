@@ -2,7 +2,6 @@ import logging
 import sys
 
 import argh
-import coloredlogs
 
 from dotenv import load_dotenv, find_dotenv
 

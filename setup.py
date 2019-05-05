@@ -24,10 +24,10 @@ setup(
 
     # installation info and requirements
     install_requires=[
-        "argh",
-        "dotenv",
-        "PyYAML",
-        "github",
+        "argh>=0.26",
+        "python-dotenv>=0.10",
+        "PyYAML>=5.1",
+        "PyGithub>=1.43",
     ],
     setup_requires=[],
 
