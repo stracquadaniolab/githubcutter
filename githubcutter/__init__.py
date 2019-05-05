@@ -13,15 +13,11 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 # defining field constants
 # fields costant to dicrease hard coding in the code
 REPO_FIELD = "repository"
-DESCRIPTION_FIELD = "description"
-HOMEPAGE_FIELD = "homepage"
-PRIVATE_FIELD = "private"
-WIKI_FIELD = "wiki"
-ISSUES_FIELD = "issues"
+ORGANIZATION_FIELD = "organization"
+SETTING_FIELD = "settings"
 LABEL_FIELD = "labels"
 MILESTONE_FIELD = "milestones"
 DUE_ON_FIELD = "due_on"
-ORGANIZATION_FIELD = "organization"
 
 # env constants
 GITHUB_TOKEN_ENV = "GITHUBCUTTER_GITHUB_TOKEN"

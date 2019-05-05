@@ -10,43 +10,26 @@ import githubcutter.config
 import githubcutter.entity
 
 
-def create_repository(
-    repo_name=None,
-    organization=None,
-    private=True,
-    description=None,
-    homepage=None,
-    template=None,
-):
+def create_repository(input_filename: "githubcutter template" = "githubcutter.yml",):
+    """
+        Create a GitHub repository.
+    """
+
     # getting the logger for the command
     logger = logging.getLogger(__name__)
 
     # parameters update
-    config = githubcutter.config.Config.load_from_yaml_file(template)
-
-    # updating the config with the
-    config[githubcutter.REPO_FIELD] = repo_name
-    config[githubcutter.ORGANIZATION_FIELD] = organization
-    config[githubcutter.PRIVATE_FIELD] = private
-    config[githubcutter.DESCRIPTION_FIELD] = description
-    config[githubcutter.HOMEPAGE_FIELD] = homepage
-
-    if config[githubcutter.REPO_FIELD] is None:
-        logger.error(
-            "No repository specified in either the template file or on the command line."
-        )
-        sys.exit(-1)
+    config = githubcutter.config.Config.load_from_yaml_file(input_filename)
 
     try:
         # getting the enty responsible for handling the operations
-        entity = githubcutter.entity.EntityManager.get_entity(config[githubcutter.ORGANIZATION_FIELD])
+        entity = githubcutter.entity.EntityManager.get_entity(
+            config[githubcutter.ORGANIZATION_FIELD]
+        )
 
         # creating a repository
         repo = entity.create_repo(
-            config[githubcutter.REPO_FIELD],
-            description=config[githubcutter.DESCRIPTION_FIELD],
-            homepage=config[githubcutter.HOMEPAGE_FIELD],
-            private=config[githubcutter.PRIVATE_FIELD],
+            config[githubcutter.REPO_FIELD], **config[githubcutter.SETTING_FIELD]
         )
 
         # creating labels
@@ -66,6 +49,9 @@ def create_repository(
 
 
 def delete_repository(repo_name, organization=None):
+    """
+        Delete a GitHub repository.
+    """
     # getting the logger for the command
     logger = logging.getLogger(__name__)
 
@@ -82,3 +68,22 @@ def delete_repository(repo_name, organization=None):
     finally:
         # logging info
         logger.info("Repository deleted.")
+
+def list_repositories(organization=None):
+    """
+        List all GitHub repositories for a user or organization.
+    """
+    # getting the logger for the command
+    logger = logging.getLogger(__name__)
+
+    try:
+        # connecting to Github and get the user
+        entity = githubcutter.entity.EntityManager.get_entity(organization)
+
+        # list of repositories
+        repos = sorted(entity.list_repos(), key=lambda x: x.name)
+        for r in repos:
+            logger.info('{:>50}'.format(r.name))
+
+    except Exception as ex:
+        logger.exception(ex)

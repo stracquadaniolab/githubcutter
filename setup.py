@@ -15,15 +15,20 @@ setup(
     description = 'A cookiecutter-like tool to setup GitHub repos based on templates',
     long_description = readme,
     license = 'MIT',
-    url='git@github.com:stracquadaniolab/github-cutter.git',
-    keywords='',
+    url='https://github.com/stracquadaniolab/githubcutter',
+    keywords='version-control git automation',
 
     # author information
-    author = 'StracquadanioLab',
+    author = 'Giovanni Stracquadanio',
     author_email = 'giovanni.stracquadanio@ed.ac.uk',
 
     # installation info and requirements
-    install_requires=[],
+    install_requires=[
+        "argh",
+        "dotenv",
+        "PyYAML",
+        "github",
+    ],
     setup_requires=[],
 
     # test info and requirements
@@ -31,7 +36,7 @@ setup(
     tests_require=[],
 
     # package deployment info
-    include_package_data=True,
+    include_package_data=False,
     zip_safe=False,
 
     # all tools have cli interface

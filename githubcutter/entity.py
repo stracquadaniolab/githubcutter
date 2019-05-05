@@ -13,14 +13,17 @@ class Entity(object):
         self.__entity = ent
         self.__logger = logging.getLogger(__name__)
 
-    def create_repo(self, repo_name, description, homepage, private):
+    def create_repo(self, repo_name, **kwargs):
         self.__logger.info("Creating repository: %s." % repo_name)
-        return self.__entity.create_repo(repo_name, description, homepage, private)
+        return self.__entity.create_repo(repo_name, **kwargs)
 
     def delete_repo(self, repo_name):
         self.__logger.info("Deleting repository: %s." % repo_name)
         repo = self.__entity.get_repo(repo_name)
         repo.delete()
+
+    def list_repos(self):
+        return self.__entity.get_repos()
 
     def create_labels(self, repo, labels, purge=True):
         # purge old labels first

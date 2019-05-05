@@ -6,20 +6,19 @@ import yaml
 class Config(object):
     def __init__(self, yml_string=None):
         # parsing a YAML string into a Python dict
-        if yml_string:
-            self.__config = self.__parse_yml(yml_string)
-        else:
-            self.__config = dict()
+        self.__config = self.__parse_yml(yml_string)
 
     def __setitem__(self, key, value):
-        if value is not None:
-            self.__config[key] = value
+        self.__config[key] = value
 
     def __getitem__(self, key):
-        if key in self.__config:
-            return self.__config[key]
-        else:
-            return None
+        val = None
+        try:
+            val =  self.__config[key]
+        except KeyError as kex:
+            logging.getLogger(__name__).error("Missing config parameter: %s." % kex.args[0])
+        finally:
+            return val
 
     def __parse_yml(self, yml_string):
         try:
@@ -31,8 +30,6 @@ class Config(object):
 
     @staticmethod
     def load_from_yaml_file(fname):
-        if fname is None:
-            return Config()
         try:
             yml_string = open(fname, "r").read()
             cfg = Config(yml_string)
