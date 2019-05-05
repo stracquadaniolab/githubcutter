@@ -11,7 +11,7 @@ setup(
     # package information
     name = 'githubcutter',
     packages = find_packages(),
-    version = '0.0.1-dev',
+    version = '0.1.0-dev',
     description = 'A cookiecutter-like tool to setup GitHub repos based on templates',
     long_description = readme,
     license = 'MIT',

@@ -1,6 +1,6 @@
 # GitHub Cutter
 
-Current version: 0.0.1-dev
+Current version: 0.1.0-dev
 
 A cookiecutter-like clone to setup GitHub repos based on templates
 
