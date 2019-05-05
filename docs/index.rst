@@ -1,11 +1,14 @@
-GitHub Cutter
-==============================
-This is the index page for the project "GitHub Cutter"
-by StracquadanioLab (giovanni.stracquadanio@ed.ac.uk).
+githubcutter
+============
 
-Description
------------
-A cookiecutter-like clone to setup GitHub repos based on templates
+A tool to setup GitHub repositories using simple YAML templates.
+
+The tool was inspired by cookiecutter_, which is heavily used in the lab,
+as we needed a tool to automate repositories creation on GitHub.
+
+Githubcutter is the result of a quick weekend of coding,
+which means that more functions might probably needed and
+that bugs are hanging around.
 
 .. toctree::
     :maxdepth: 2
@@ -13,11 +16,6 @@ A cookiecutter-like clone to setup GitHub repos based on templates
 
     tutorial.rst
 
-.. toctree::
-    :maxdepth: 2
-    :caption: API Reference
-
-    modules.rst
     changelog.rst
 
 Indices and tables
@@ -26,3 +24,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. _cookiecutter: https://cookiecutter.readthedocs.io/en/latest/

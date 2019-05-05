@@ -19,6 +19,7 @@ def main():
     # loading env
     load_dotenv(find_dotenv(filename=".githubcutter.env", usecwd=True))
 
+    # creating a command dispatcher
     parser = argh.ArghParser()
     parser.add_commands([create_repository, delete_repository, list_repositories])
     parser.dispatch()

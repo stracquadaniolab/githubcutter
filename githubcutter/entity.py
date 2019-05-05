@@ -1,10 +1,8 @@
 import os
-
 import logging
 from datetime import datetime
 
 from github import Github
-
 import githubcutter
 
 
@@ -13,14 +11,19 @@ class Entity(object):
         self.__entity = ent
         self.__logger = logging.getLogger(__name__)
 
-    def create_repo(self, repo_name, **kwargs):
+    def create_repo(self, repo_name, params=None):
         self.__logger.info("Creating repository: %s." % repo_name)
-        return self.__entity.create_repo(repo_name, **kwargs)
+        if params:
+            return self.__entity.create_repo(repo_name, **params)
+        else:
+            return self.__entity.create_repo(repo_name)
+        self.__logger.info("Repository created.")
 
     def delete_repo(self, repo_name):
         self.__logger.info("Deleting repository: %s." % repo_name)
         repo = self.__entity.get_repo(repo_name)
         repo.delete()
+        self.__logger.info("Repository deleted.")
 
     def list_repos(self):
         return self.__entity.get_repos()
@@ -32,14 +35,15 @@ class Entity(object):
             for l in default_labels:
                 l.delete()
 
-        if labels is not None:
+        if labels:
             self.__logger.info("Creating labels.")
             # create the new labels
             for cl in labels:
                 repo.create_label(**cl)
+            self.__logger.info("Labels created.")
 
     def create_milestones(self, repo, milestones):
-        if milestones is not None:
+        if milestones:
             self.__logger.info("Creating milestones.")
             # creating milestones
             for ml in milestones:
@@ -49,6 +53,7 @@ class Entity(object):
                         ml[githubcutter.DUE_ON_FIELD], "%d-%m-%Y"
                     )
                 repo.create_milestone(**ml)
+            self.__logger.info("Milestones created.")
 
 
 class EntityManager(object):

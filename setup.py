@@ -14,6 +14,7 @@ setup(
     version = '0.1.2-dev',
     description = 'A cookiecutter-like tool to setup GitHub repos based on templates',
     long_description = readme,
+    long_description_content_type = 'text/markdown',
     license = 'MIT',
     url='https://github.com/stracquadaniolab/githubcutter',
     keywords='version-control git automation',
@@ -28,7 +29,9 @@ setup(
         "python-dotenv>=0.10",
         "PyYAML>=5.1",
         "PyGithub>=1.43",
+        "dotty-dict>=1.1",
     ],
+
     setup_requires=[],
 
     # test info and requirements

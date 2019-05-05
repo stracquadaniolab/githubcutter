@@ -13,6 +13,7 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 # defining field constants
 # fields costant to dicrease hard coding in the code
 REPO_FIELD = "repository"
+SETTINGS_PRIVATE_FIELD = "settings.private"
 ORGANIZATION_FIELD = "organization"
 SETTING_FIELD = "settings"
 LABEL_FIELD = "labels"

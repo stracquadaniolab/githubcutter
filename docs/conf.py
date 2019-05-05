@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'GitHub Cutter'
+project = 'githubcutter'
 copyright = 'StracquadanioLab'
 author = 'StracquadanioLab'
 
@@ -124,8 +124,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'github_cutter', 'GitHub Cutter',
-     author, 'testproject', 'A cookiecutter-like clone to setup GitHub repos based on templates.',
+    (master_doc, 'github_cutter', 'githubcutter',
+     author, 'testproject', 'A tool to setup GitHub repositories using simple YAML templates.',
      'Miscellaneous'),
 ]
 
