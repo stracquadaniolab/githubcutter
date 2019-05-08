@@ -5,7 +5,7 @@ import argh
 
 from dotenv import load_dotenv, find_dotenv
 
-from .commands import create_repository, delete_repository, list_repositories
+from .commands import create_repository, delete_repository, list_repositories, add_labels
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 
     # creating a command dispatcher
     parser = argh.ArghParser()
-    parser.add_commands([create_repository, delete_repository, list_repositories])
+    parser.add_commands([create_repository, delete_repository, list_repositories, add_labels])
     parser.dispatch()
 
 

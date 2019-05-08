@@ -98,3 +98,33 @@ def list_repositories(organization=None):
     for r in repos:
         logger.info("{:>50}".format(r.name))
 
+
+@arg(
+    "--repository",
+    "-r",
+    help="name of repository.",
+    required=False,
+    dest=githubcutter.REPO_FIELD,
+)
+@wrap_errors([GithubException])
+def add_labels(
+    input_filename: "githubcutter template" = "githubcutter.yml",
+    purge: "remove existing labels. " = False,
+    **kwargs
+):
+    "Add labels to a repository from a template."
+    # parameters update
+    config = githubcutter.config.Config.load_from_yaml_file(input_filename)
+    # checking for parameters overide by CLI
+    config.update(kwargs)
+
+    # getting the entry responsible for handling the operations
+    entity = githubcutter.entity.EntityManager.get_entity(
+        config[githubcutter.ORGANIZATION_FIELD]
+    )
+
+    # getting the repo
+    repo = entity.get_repo(config[githubcutter.REPO_FIELD])
+
+    # creating labels
+    entity.create_labels(repo, config[githubcutter.LABEL_FIELD], purge=purge)

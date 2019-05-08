@@ -19,6 +19,10 @@ class Entity(object):
             return self.__entity.create_repo(repo_name)
         self.__logger.info("Repository created.")
 
+    def get_repo(self, repo_name):
+        self.__logger.info("Getting repository: %s." % repo_name)
+        return self.__entity.get_repo(repo_name)
+
     def delete_repo(self, repo_name):
         self.__logger.info("Deleting repository: %s." % repo_name)
         repo = self.__entity.get_repo(repo_name)

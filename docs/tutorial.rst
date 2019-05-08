@@ -170,3 +170,14 @@ It is possible to list repositories on a personal account or organization as fol
 .. code:: bash
 
     githubcutter delete testing
+
+Adding labels
+-------------
+
+It is possible to add labels to an existing repository from a template as follows:
+
+.. code:: bash
+
+    githubcutter add-labels -i template.yaml -r test
+
+
