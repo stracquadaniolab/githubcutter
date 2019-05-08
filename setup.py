@@ -11,7 +11,7 @@ setup(
     # package information
     name="githubcutter",
     packages=find_packages(),
-    version="0.3.0-dev",
+    version="0.3.1-dev",
     description="A tool to setup GitHub repositories using simple YAML templates",
     long_description=readme,
     long_description_content_type="text/markdown",

@@ -24,9 +24,9 @@ copyright = 'StracquadanioLab'
 author = 'StracquadanioLab'
 
 # The short X.Y version
-version = '0.3.0-dev'
+version = '0.3.1-dev'
 # The full version, including alpha/beta/rc tags
-release = '0.3.0-dev'
+release = '0.3.1-dev'
 
 
 # -- General configuration ---------------------------------------------------
